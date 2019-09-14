@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Eminent router mixed XSS"
+title:  "Eminent router mixed XSS and password reset issue"
 date:   2019-09-14 11:33:37 +0100
 categories: 0day
 ---
@@ -289,3 +289,76 @@ Malicious link that once opened by a user authenticated to the router triggers t
 [Discoverer]
 
 Tomas Bortoli
+
+
+
+# CVE-2018-12073
+
+[Description]
+
+An issue was discovered on Eminent EM4544 9.10 devices.
+The device does not require the user's current password to set a new
+one within the web interface. Therefore, it is possible to exploit
+this issue (e.g., in combination with a successful XSS, or at an unattended workstation) to change the
+admin password to an attacker-chosen value without knowing the
+current password.
+
+------------------------------------------
+
+[VulnerabilityType Other]
+
+Insecure password management
+
+------------------------------------------
+
+[Vendor of Product]
+
+Eminent
+
+------------------------------------------
+
+[Affected Product Code Base]
+
+EM4544 - 9.10
+
+------------------------------------------
+
+[Affected Component]
+
+EM4544 - 9.10
+
+------------------------------------------
+
+[Attack Type Other]
+
+Bad password management
+
+------------------------------------------
+
+[CVE Impact Other]
+
+Change password without knowing the current one
+
+------------------------------------------
+
+[Attack Vectors]
+
+Web interface, change password
+
+------------------------------------------
+
+[Has vendor confirmed or acknowledged the vulnerability?]
+
+true
+
+------------------------------------------
+
+[Discoverer]
+
+Tomas Bortoli
+
+------------------------------------------
+
+[Reference]
+
+http://www.eminent-online.com/eminent-em4544-pro-wireless-300n-router.html
