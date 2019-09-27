@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Popcord root RCE"
+title:  "Popcorn root RCE"
 date:   2019-09-14 11:33:37 +0100
 categories: 0day
 ---

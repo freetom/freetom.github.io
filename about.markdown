@@ -4,6 +4,6 @@ title: About
 permalink: /about/
 ---
 
-Tomas Bortoli <tomasbortoli@gmail.com> freetom
+Tomas Bortoli &lt;tomasbortoli@gmail.com&gt; *freetom*
 
-0days are fun
+0days are fun. A blog to inform about software security issues in various contexts.

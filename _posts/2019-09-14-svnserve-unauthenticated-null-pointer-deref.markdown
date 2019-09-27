@@ -12,6 +12,7 @@ categories: bug
 
 [USN-4082-1](https://usn.ubuntu.com/4082-1/)
 
+Bug found using honggfuzz.
 
 *Input:*
 ```
