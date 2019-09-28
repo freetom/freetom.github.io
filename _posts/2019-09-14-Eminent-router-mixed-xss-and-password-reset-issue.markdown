@@ -19,7 +19,7 @@ categories: 0day
 An issue was discovered on Eminent EM4544 9.10 devices.
 Stored Cross-Site-Scripting has been found on the web interface. The
 'timepro.cgi' endpoint allows injections of JavaScript through the
-&quot;name&quot; GET parameter. The injection is stored as part of a
+'name' GET parameter. The injection is stored as part of a
 port-forwarding rule and therefore it will persist after system
 restart.
 
@@ -90,8 +90,8 @@ http://www.eminent-online.com/faq/index/faq
 [Description]
 
 An issue was discovered on Eminent EM4544 9.10 devices.
-Reflected Cross-Site-Scripting has been found on the web interface. The &quot;timepro.cgi&quot; endpoint allows injections of JavaScript
-through the &quot;wan_name&quot; GET parameter.
+Reflected Cross-Site-Scripting has been found on the web interface. The 'timepro.cgi' endpoint allows injections of JavaScript
+through the 'wan_name' GET parameter.
 
 ------------------------------------------
 
@@ -161,8 +161,8 @@ http://www.eminent-online.com/faq/index/faq
 
 An issue was discovered on Eminent EM4544 9.10 devices.
 Reflected Cross-Site-Scripting has been found on the web interface. The
-&quot;timepro.cgi&quot; endpoint allows injections of JavaScript through the
-&quot;tmenu&quot; GET parameter under certain conditions.
+'timepro.cgi' endpoint allows injections of JavaScript through the
+'tmenu' GET parameter under certain conditions.
 
 ------------------------------------------
 
@@ -225,8 +225,8 @@ Tomas Bortoli
 
 An issue was discovered on Eminent EM4544 9.10 devices.
 Reflected Cross-Site-Scripting has been found on the web interface. The
-&quot;timepro.cgi&quot; endpoint allows injections of JavaScript through the
-&quot;smenu&quot; GET parameter under certain conditions.
+'timepro.cgi' endpoint allows injections of JavaScript through the
+'smenu' GET parameter under certain conditions.
 
 ------------------------------------------
 
