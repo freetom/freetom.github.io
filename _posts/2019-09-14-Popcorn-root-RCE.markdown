@@ -7,6 +7,7 @@ categories: 0day
 
 # CVE-2018-12072
 
+```
 [Description]
 An issue was discovered in Cloud Media Popcorn A-200 03-05-130708-21-POP-411-000 firmware.
 It is configured to provide TELNET remote access (without a password) that
@@ -67,3 +68,4 @@ Tomas Bortoli
 
 [Reference]
 http://support.cloudmedia.com
+```

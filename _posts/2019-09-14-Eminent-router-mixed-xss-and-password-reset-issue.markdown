@@ -7,6 +7,7 @@ categories: 0day
 
 # CVE-2018-10719
 
+```
 [Description]
 
 An issue was discovered on Eminent EM4544 9.10 devices.
@@ -92,9 +93,11 @@ Tomas Bortoli
 
 http://www.eminent-online.com/faq/index/faq
 
+```
 
 # CVE-2018-10720
 
+```
 [Description]
 
 An issue was discovered on Eminent EM4544 9.10 devices.
@@ -162,10 +165,11 @@ Tomas Bortoli
 [Reference]
 
 http://www.eminent-online.com/faq/index/faq
-
+```
 
 # CVE-2018-10765
 
+```
 [Suggested description]
 
 An issue was discovered on Eminent EM4544 9.10 devices.
@@ -225,10 +229,11 @@ Malicious link that once opened by a user authenticated to the router triggers t
 
 [Discoverer]
 Tomas Bortoli
-
+```
 
 # CVE-2018-10766
 
+```
 [Suggested description]
 
 An issue was discovered on Eminent EM4544 9.10 devices.
@@ -289,11 +294,12 @@ Malicious link that once opened by a user authenticated to the router triggers t
 [Discoverer]
 
 Tomas Bortoli
-
+```
 
 
 # CVE-2018-12073
 
+```
 [Description]
 
 An issue was discovered on Eminent EM4544 9.10 devices.
@@ -362,3 +368,4 @@ Tomas Bortoli
 [Reference]
 
 http://www.eminent-online.com/eminent-em4544-pro-wireless-300n-router.html
+```
