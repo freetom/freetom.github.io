@@ -5,6 +5,12 @@ date:   2019-09-14 11:33:37 +0100
 categories: 0day
 ---
 
+<style>
+        pre {
+        white-space: pre-wrap;
+        }
+</style>
+
 # CVE-2018-12072
 
 ```
