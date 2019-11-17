@@ -5,7 +5,7 @@ date:   2019-09-14 11:33:37 +0100
 categories: 0day
 ---
 
-# CVE-2019-16305
+# [CVE-2019-16305](https://nvd.nist.gov/vuln/detail/CVE-2019-16305)
 
 MobaXterm protocol handler on Windows is vulnerable to command injection.
 
