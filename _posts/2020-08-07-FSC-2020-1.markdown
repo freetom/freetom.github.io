@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "FSC-2020-1"
-date:   2020-08-07 17:13:37 +0100
+date:   2020-08-06 17:13:37 +0100
 categories: bug
 ---
 
@@ -28,6 +28,12 @@ Unfortunately, the web application was missing proper anti-CSRF tokens to preven
 
 I was able to create the following PoC which sprays the variables' name space and chains 2 CSRF to: **Disable the anti-virus, system integrity protection and the firewall** with a single "phished" click:
 
+Video PoC:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ODuJCgx3SyM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+Exploit PoC:
 ```html
 <html>
 <head>
