@@ -18,7 +18,7 @@ code {
 ### Timeline
 * 21 April 2020 - Bug reported to F-Secure <br/>
 * 14 May 2020 - F-Secure releases a *hotfix* to address the bug <br/>
-* 19 May 2020 - F-Secure releases a Security Advisory for the bug ([FSC-2020-1](https://www.f-secure.com/en/business/support-and-downloads/security-advisories/fsc-2020-1))
+* 19 May 2020 - F-Secure releases a Security Advisory for the bug ([FSC-2020-1](https://www.withsecure.com/en/support/security-advisories/fsc-2020-1))
 
 ### The bug
 
