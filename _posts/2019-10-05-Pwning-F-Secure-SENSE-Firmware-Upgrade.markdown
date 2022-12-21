@@ -36,7 +36,7 @@ The vulnerability type is a **Time Of Check Time of Use (TOCTOU)** in the *fsupd
 
  I got into the [F-Secure Hall of fame](https://web.archive.org/web/20210226131123/https://www.f-secure.com/gb-en/business/programs/vulnerability-reward-program/hall-of-fame) for this bug.
 
- ![F-Secure hall-of-fame screenshot could not load](./images/f-secure_hall_of_fame.png "F-Secure's hall-of-fame")
+ ![](./images/f-secure_hall_of_fame.png)
 
 ### Vulnerability walkthrough
 
