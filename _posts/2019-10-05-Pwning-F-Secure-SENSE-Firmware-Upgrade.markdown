@@ -34,7 +34,9 @@ The vulnerability type is a **Time Of Check Time of Use (TOCTOU)** in the *fsupd
  * Fix released to the public in version +1.9.4.551 - 5th of September
  * Bounty awarded - 18th of September
 
-I got into the [F-Secure Hall of fame](https://www.f-secure.com/gb-en/business/programs/vulnerability-reward-program/hall-of-fame) for this bug.
+ I got into the [F-Secure Hall of fame](https://web.archive.org/web/20210226131123/https://www.f-secure.com/gb-en/business/programs/vulnerability-reward-program/hall-of-fame) for this bug.
+
+ ![F-Secure hall-of-fame screenshot could not load](./images/f-secure_hall_of_fame.png "F-Secure's hall-of-fame")
 
 ### Vulnerability walkthrough
 
